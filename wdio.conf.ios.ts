@@ -1,4 +1,5 @@
 import { config } from './wdio.conf.ts'
+process.env.DEVICE = 'IOS'
 
 config.services =
     [['appium', {

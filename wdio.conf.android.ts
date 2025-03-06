@@ -1,4 +1,5 @@
 import { config } from './wdio.conf.ts'
+process.env.DEVICE = 'Android'
 
 let run_env = process.env.RUN_ENV || 'local'
 if (run_env === 'local') {
