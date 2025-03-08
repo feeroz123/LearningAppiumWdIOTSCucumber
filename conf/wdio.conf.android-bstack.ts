@@ -2,12 +2,8 @@ import { config } from './wdio.conf';
 
 config.capabilities = [{
     platformName: 'Android',
-    'appium:deviceName': 'emulator-5554',
-    'appium:platformVersion': '15.0',
     'appium:automationName': 'UiAutomator2',
-
-    'appium:appPackage': 'com.android.chrome',
-    'appium:appActivity': 'com.google.android.apps.chrome.Main',
+    'autoAcceptAlerts': true,
 }]
 
 config.services = [
@@ -16,9 +12,7 @@ config.services = [
             logPath: './appium_logs',
             args: { port: 4723 }
         }
-    ],
-    // TODO: Add XCUI service to support iOS tests
-    //[]
+    ]
 ];
 
 const parallelConfig = {
@@ -26,11 +20,6 @@ const parallelConfig = {
     key: process.env.BROWSERSTACK_ACCESS_KEY,
     hostname: 'hub.browserstack.com',
     maxInstances: 1,
-    commonCapabilities: {
-        'bstack:options': {
-            buildName: 'wdio_mobile_build',
-        }
-    },
     services: [
         [
             'browserstack',
@@ -39,7 +28,7 @@ const parallelConfig = {
                 testObservability: true,
                 testObservabilityOptions: {
                     projectName: "My Project",
-                    buildName: "Mobile Build",
+                    buildName: "Android Mobile Build",
                     browserstackLocal: true
                 },
             }
@@ -47,14 +36,6 @@ const parallelConfig = {
         ]
     ],
     capabilities: [
-        // {
-        //     browserName: 'safari',
-        //     'bstack:options': {
-        //         deviceName: 'iPhone 15 Pro Max',
-        //         osVersion: '18',
-        //         deviceOrientation: 'portrait'
-        //     },
-        // },
         {
             browserName: 'chrome',
             'bstack:options': {
@@ -62,16 +43,15 @@ const parallelConfig = {
                 osVersion: '13.0',
                 deviceOrientation: 'portrait'
             }
-        },
-        // {
-        //     browserName: 'chrome',
-        //     'bstack:options': {
-        //         deviceName: 'iPhone 15 Pro Max',
-        //         osVersion: '18',
-        //         deviceOrientation: 'portrait'
-        //     }
-        // }
+        }
     ],
+    commonCapabilities: {
+        'bstack:options': {
+            buildName: `wdio-android-mobile-build`,
+            networkLogs: 'true',
+            consoleLogs: 'info'
+        }
+    },
 };
 
 exports.config = { ...config, ...parallelConfig };

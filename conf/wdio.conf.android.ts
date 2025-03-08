@@ -12,6 +12,7 @@ config.capabilities = [{
     'appium:deviceName': 'emulator-5554',
     'appium:platformVersion': '15.0',
     'appium:automationName': 'UiAutomator2',
+    'autoAcceptAlerts': true,
 
     'appium:appPackage': 'com.android.chrome',
     'appium:appActivity': 'com.google.android.apps.chrome.Main',

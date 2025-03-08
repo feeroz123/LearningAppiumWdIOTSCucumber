@@ -10,12 +10,25 @@ Run `npm install`
 
 1. To execute in LOCAL ANDROID AVD:
     ```sh
-    RUN_ENV=local npm run wdio:android
+    npm run wdio:android
     ```
 2. To execute in LOCAL WINDOWS:
     ```sh
-    RUN_ENV=local npm run wdio:windows
+    npm run wdio:windows
     ```
+3. To execute in BROWSERSTACK:
+    - For Desktop devices:
+        ```sh
+        npm run wdio:desktop-bstack
+        ```
+    - For Android Mobile device:
+        ```sh
+        npm run wdio:android-bstack
+        ```
+    - For IOS Mobile device:
+        ```sh
+        npm run wdio:ios-bstack
+        ```
 
 # Reporting
 
