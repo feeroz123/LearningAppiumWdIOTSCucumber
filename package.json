@@ -15,6 +15,7 @@
   "scripts": {
     "wdio:android": "wdio run conf/wdio.conf.android.ts",
     "wdio:windows": "wdio run conf/wdio.conf.windows.ts",
+    "wdio:windows-vp": "wdio run conf/wdio.conf.windows-viewport.ts",
     "wdio:desktop-bstack": "wdio run conf/wdio.conf.desktop-bstack.ts",
     "wdio:android-bstack": "wdio run conf/wdio.conf.android-bstack.ts",
     "wdio:ios-bstack": "wdio run conf/wdio.conf.ios-bstack.ts"
@@ -32,7 +33,7 @@
     "appium": "^2.16.2",
     "appium-uiautomator2-driver": "^4.1.0",
     "appium-xcuitest-driver": "^8.3.3",
-    "chromedriver": "^133.0.3",
+    "chromedriver": "^134.0.2",
     "expect-webdriverio": "^2.0.0",
     "wdio-chromedriver-service": "^8.1.1",
     "wdio-wait-for": "^3.1.0"

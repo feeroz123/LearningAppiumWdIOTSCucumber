@@ -12,4 +12,8 @@ export default class BasePage {
     public open (path: string) {
         return browser.url(`https://equipmentshare-us-7fcd6ee2fbc58ac5b15ef.webflow.io/${path}`)
     }
+
+    public sleep(ms: number): Promise<void> {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
 }
