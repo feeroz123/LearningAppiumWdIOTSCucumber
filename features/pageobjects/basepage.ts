@@ -21,7 +21,6 @@ export default class BasePage {
         if (element?.waitForExist({ timeoutVal })) {
             await expect(element).toBeDisplayed()
             console.log("Element is displayed")
-            return true
         }
         else {
             console.log("ERROR: Element is not displayed")
