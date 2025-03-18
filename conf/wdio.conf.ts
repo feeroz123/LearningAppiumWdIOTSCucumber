@@ -1,3 +1,5 @@
+let debug = process.env.debug
+
 export const config: WebdriverIO.Config = {
     //
     // ====================
