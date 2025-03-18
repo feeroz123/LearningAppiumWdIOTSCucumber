@@ -12,7 +12,7 @@ config.capabilities = [{
 }]
 
 // Maximize the window before running the tests
-config.before = async function (browser) {
+config.before = async function (capabilities, specs, browser) {
     await browser.maximizeWindow()
 }
 

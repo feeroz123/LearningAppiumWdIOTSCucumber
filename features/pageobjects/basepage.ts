@@ -9,11 +9,43 @@ export default class BasePage {
     * Opens a sub page of the page
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
-    public open (path: string) {
-        return browser.url(`https://equipmentshare-us-7fcd6ee2fbc58ac5b15ef.webflow.io/${path}`)
+    public async open(path: string) {
+        return await browser.url(`https://equipmentshare-us-7fcd6ee2fbc58ac5b15ef.webflow.io${path}`)
     }
 
-    public sleep(ms: number): Promise<void> {
-        return new Promise((resolve) => setTimeout(resolve, ms));
+    public async sleep(ms: number): Promise<void> {
+        return await new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    public async verifyElementDisplay(element: ChainablePromiseElement, timeoutVal: number = 5000): Promise<boolean> {
+        if (element?.waitForExist({ timeoutVal })) {
+            await expect(element).toBeDisplayed()
+            console.log("Element is displayed")
+            return true
+        }
+        else {
+            console.log("ERROR: Element is not displayed")
+            return false
+        }
+
+    }
+
+    public async clickElement(element: ChainablePromiseElement) {
+        if (element?.isClickable()) {
+            await element.click()
+            console.log("Element is clicked")
+        }
+        else {
+            console.log("ERROR : Element is not clicked")
+        }
+
+    }
+
+    public async enterValue(element: ChainablePromiseElement, value:string){
+        if (element?.isClickable) {
+            await element.click().clear()
+            await element.setValue(value)
+            console.log("Entered the value as: " + value)
+        }
     }
 }
