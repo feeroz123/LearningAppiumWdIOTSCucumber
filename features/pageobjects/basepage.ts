@@ -17,7 +17,7 @@ export default class BasePage {
         return await new Promise((resolve) => setTimeout(resolve, ms));
     }
 
-    public async verifyElementDisplay(element: ChainablePromiseElement, timeoutVal: number = 5000): Promise<boolean> {
+    public async verifyElementDisplay(element: ChainablePromiseElement, timeoutVal: number = 5000) {
         if (element?.waitForExist({ timeoutVal })) {
             await expect(element).toBeDisplayed()
             console.log("Element is displayed")
