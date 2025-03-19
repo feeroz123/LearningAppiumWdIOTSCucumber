@@ -1,6 +1,9 @@
 import { config } from './wdio.conf'
 
-console.log('Running on local machine')
+console.log('Running on local machine in Viewport mode')
+
+//config.specs = ['../features/**/*.feature']
+//config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
 
 config.services = ['chromedriver']
 config.capabilities = [{

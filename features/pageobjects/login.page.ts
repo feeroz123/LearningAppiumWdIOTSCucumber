@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import BasePage from './basepage';
+import BasePage from './base.page';
 
 class LoginPage extends BasePage {
 

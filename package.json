@@ -18,7 +18,8 @@
     "wdio:windows-vp": "wdio run conf/wdio.conf.windows-viewport.ts",
     "wdio:desktop-bstack": "wdio run conf/wdio.conf.desktop-bstack.ts",
     "wdio:android-bstack": "wdio run conf/wdio.conf.android-bstack.ts",
-    "wdio:ios-bstack": "wdio run conf/wdio.conf.ios-bstack.ts"
+    "wdio:ios-bstack": "wdio run conf/wdio.conf.ios-bstack.ts",
+    "wdio:mobile-bstack": "wdio run conf/wdio.conf.mobile-bstack.ts"
   },
   "dependencies": {
     "@wdio/cli": "^9.11.0"

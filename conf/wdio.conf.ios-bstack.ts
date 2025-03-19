@@ -1,5 +1,10 @@
 import { config } from './wdio.conf';
 
+console.log('Running on Browserstack - App Automate')
+
+//config.specs = ['../features/**/*.feature']
+//config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
+
 config.capabilities = [{
     platformName: 'ios',
     'appium:automationName': 'XCUITest',
@@ -7,6 +12,7 @@ config.capabilities = [{
     'autoAcceptAlerts': true
 }]
 
+// As Browsertack uses WebDriver implementations to interact
 config.services = [
     ['appium',
         {
@@ -28,8 +34,7 @@ const parallelConfig = {
                 buildIdentifier: '#${BUILD_NUMBER}',
                 testObservability: true,
                 testObservabilityOptions: {
-                    projectName: "My Project",
-                    buildName: "IOS Mobile Build",
+                    projectName: "ES",
                     browserstackLocal: true
                 },
             }
@@ -38,7 +43,7 @@ const parallelConfig = {
     ],
     capabilities: [
         {
-            // Launches in WebKit with a display of Safari browser
+            // Launches Chrome browser in WebKit with a display of Safari browser
             browserName: 'chrome',
             'bstack:options': {
                 deviceName: 'iPhone 16 Pro Max',

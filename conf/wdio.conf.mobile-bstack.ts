@@ -5,26 +5,18 @@ console.log('Running on Browserstack - App Automate')
 //config.specs = ['../features/**/*.feature']
 //config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
 
-config.capabilities = [{
-    platformName: 'Android',
-    'appium:automationName': 'UiAutomator2',
-    'autoAcceptAlerts': true,
-}]
-
-config.services = [
-    ['appium',
-        {
-            logPath: './appium_logs',
-            args: { port: 4723 }
-        }
-    ]
-];
-
 const parallelConfig = {
     user: process.env.BROWSERSTACK_USERNAME,
     key: process.env.BROWSERSTACK_ACCESS_KEY,
     hostname: 'hub.browserstack.com',
     maxInstances: 1,
+    commonCapabilities: {
+        'bstack:options': {
+            buildName: `wdio-mobile-build`,
+            networkLogs: 'true',
+            consoleLogs: 'info'
+        }
+    },
     services: [
         [
             'browserstack',
@@ -40,6 +32,7 @@ const parallelConfig = {
         ]
     ],
     capabilities: [
+        // Android device
         {
             browserName: 'chrome',
             'bstack:options': {
@@ -47,15 +40,26 @@ const parallelConfig = {
                 osVersion: '13.0',
                 deviceOrientation: 'portrait'
             }
+        },
+        // IOS device
+        {
+            // Launches Chrome browser in WebKit with a display of Safari browser
+            browserName: 'chrome',
+            'bstack:options': {
+                deviceName: 'iPhone 16 Pro Max',
+                platformVersion: '18',
+                deviceOrientation: 'portrait'
+            }
+        },
+        {
+            browserName: 'safari',
+            'bstack:options': {
+                deviceName: 'iPhone 16 Pro Max',
+                platformVersion: '18',
+                deviceOrientation: 'portrait'
+            },
         }
-    ],
-    commonCapabilities: {
-        'bstack:options': {
-            buildName: `wdio-android-mobile-build`,
-            networkLogs: 'true',
-            consoleLogs: 'info'
-        }
-    },
+    ]
 };
 
 exports.config = { ...config, ...parallelConfig };

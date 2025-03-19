@@ -1,5 +1,9 @@
 import { config } from './wdio.conf'
 
+console.log('Running on Local machine - Android Virtual Device (AVD)')
+
+//config.specs = ['../features/**/*.feature']
+//config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
 
 config.services = [['appium',
     {
@@ -12,7 +16,7 @@ config.capabilities = [{
     'appium:deviceName': 'emulator-5554',
     'appium:platformVersion': '15.0',
     'appium:automationName': 'UiAutomator2',
-    'autoAcceptAlerts': true,
+    'appium:autoAcceptAlerts': true,
 
     'appium:appPackage': 'com.android.chrome',
     'appium:appActivity': 'com.google.android.apps.chrome.Main',

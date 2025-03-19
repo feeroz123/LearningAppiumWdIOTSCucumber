@@ -1,10 +1,14 @@
 import { config } from './wdio.conf';
 
+console.log('Running on Browstack - Automate')
 
 // Hook to maximise the browser
-config.before = function (browser) {
-    browser.maximizeWindow();
+config.before = async function (capabilities, specs, browser) {
+    await browser.maximizeWindow()
 }
+
+//config.specs = ['../features/desktop/**/*.feature']
+//config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
 
 const parallelConfig = {
     user: process.env.BROWSERSTACK_USERNAME,
@@ -23,8 +27,7 @@ const parallelConfig = {
                 buildIdentifier: '#${BUILD_NUMBER}',
                 testObservability: true,
                 testObservabilityOptions: {
-                    projectName: "My Project",
-                    buildName: "Desktop Build",
+                    projectName: "ES",
                     browserstackLocal: true
                 },
             }
