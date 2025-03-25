@@ -18,11 +18,11 @@ Then("I should see the 'Sign In' button in the home page", async() => {
     await homePage.verifyElementDisplay(homePage.getSignInButton, 100000)
 })
 
-When("I click on the 'User Icon' button in the home page", async () => {
+When("I click on the 'User Icon' button", async () => {
     await homePage.clickElement(homePage.getUserIconButton)
 })
 
-When("I click on the 'Sign In' button in the home page", async () => {
+When("I click on the 'Sign In' button", async () => {
     await homePage.clickElement(homePage.getSignInButton)
 })
 

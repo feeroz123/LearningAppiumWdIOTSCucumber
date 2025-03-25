@@ -1,20 +1,17 @@
-import { config } from './wdio.conf';
+import { config } from './../../wdio.conf';
 
-console.log('Running on Browstack - Automate')
+console.log('Running on Browstack - Web - Automate')
 
 // Hook to maximise the browser
 config.before = async function (capabilities, specs, browser) {
     await browser.maximizeWindow()
 }
 
-//config.specs = ['../features/desktop/**/*.feature']
-//config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
-
 const parallelConfig = {
     user: process.env.BROWSERSTACK_USERNAME,
     key: process.env.BROWSERSTACK_ACCESS_KEY,
     hostname: 'hub.browserstack.com',
-    maxInstances: 1,
+    maxInstances: 3,
     commonCapabilities: {
         'bstack:options': {
             buildName: 'wdio_desktop_build',
@@ -28,10 +25,8 @@ const parallelConfig = {
                 testObservability: true,
                 testObservabilityOptions: {
                     projectName: "ES",
-                    browserstackLocal: true
                 },
             }
-
         ],
     ],
     capabilities: [
@@ -42,12 +37,21 @@ const parallelConfig = {
                 os: 'Windows',
                 osVersion: '11',
             },
-        }, {
+        },
+        {
             browserName: 'Safari',
             'bstack:options': {
                 os: 'OS X',
                 osVersion: 'Sequoia',
                 browserVersion: '18.1'
+            }
+        },
+        {
+            browserName: 'chrome',
+            browserVersion: 'latest',
+            'bstack:options': {
+                os: 'OS X',
+                osVersion: 'Sequoia',
             }
         }
     ],

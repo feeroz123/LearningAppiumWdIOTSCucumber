@@ -1,9 +1,6 @@
-import { config } from './wdio.conf'
+import { config } from '../../wdio.conf'
 
 console.log('Running on Local machine - Android Virtual Device (AVD)')
-
-//config.specs = ['../features/**/*.feature']
-//config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
 
 config.services = [['appium',
     {

@@ -1,32 +1,19 @@
-import { config } from './wdio.conf';
+import { config } from '../../wdio.conf';
 
-console.log('Running on Browserstack - App Automate')
-
-//config.specs = ['../features/**/*.feature']
-//config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
-
-config.capabilities = [{
-    platformName: 'ios',
-    'appium:automationName': 'XCUITest',
-    'appium:platformVersion': '18',
-    'autoAcceptAlerts': true
-}]
-
-// As Browsertack uses WebDriver implementations to interact
-config.services = [
-    ['appium',
-        {
-            logPath: './appium_logs',
-            args: { port: 4724 }
-        }
-    ]
-];
+console.log('Running on Browserstack - Web - Automate')
 
 const parallelConfig = {
     user: process.env.BROWSERSTACK_USERNAME,
     key: process.env.BROWSERSTACK_ACCESS_KEY,
     hostname: 'hub.browserstack.com',
-    maxInstances: 1,
+    maxInstances: 2,
+    commonCapabilities: {
+        'bstack:options': {
+            buildName: 'wdio-ios-mobile-build',
+            networkLogs: 'true',
+            consoleLogs: 'info'
+        }
+    },
     services: [
         [
             'browserstack',
@@ -34,8 +21,7 @@ const parallelConfig = {
                 buildIdentifier: '#${BUILD_NUMBER}',
                 testObservability: true,
                 testObservabilityOptions: {
-                    projectName: "ES",
-                    browserstackLocal: true
+                    projectName: "ES"
                 },
             }
 
@@ -59,14 +45,7 @@ const parallelConfig = {
                 deviceOrientation: 'portrait'
             },
         }
-    ],
-    commonCapabilities: {
-        'bstack:options': {
-            buildName: `wdio-ios-mobile-build`,
-            networkLogs: true,
-            consoleLogs: 'info'
-        }
-    },
+    ]
 };
 
 exports.config = { ...config, ...parallelConfig };

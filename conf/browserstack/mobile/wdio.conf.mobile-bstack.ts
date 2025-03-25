@@ -1,18 +1,15 @@
-import { config } from './wdio.conf';
+import { config } from '../../wdio.conf';
 
-console.log('Running on Browserstack - App Automate')
-
-//config.specs = ['../features/**/*.feature']
-//config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
+console.log('Running on Browserstack - Web - Automate')
 
 const parallelConfig = {
     user: process.env.BROWSERSTACK_USERNAME,
     key: process.env.BROWSERSTACK_ACCESS_KEY,
     hostname: 'hub.browserstack.com',
-    maxInstances: 1,
+    maxInstances: 3,
     commonCapabilities: {
         'bstack:options': {
-            buildName: `wdio-mobile-build`,
+            buildName: 'wdio-mobile-build',
             networkLogs: 'true',
             consoleLogs: 'info'
         }
@@ -24,8 +21,7 @@ const parallelConfig = {
                 buildIdentifier: '#${BUILD_NUMBER}',
                 testObservability: true,
                 testObservabilityOptions: {
-                    projectName: "ES",
-                    browserstackLocal: true
+                    projectName: "ES"
                 },
             }
 

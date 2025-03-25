@@ -1,9 +1,6 @@
-import { config } from './wdio.conf'
+import { config } from '../../wdio.conf'
 
 console.log('Running on local machine')
-
-//config.specs = ['../features/**/*.feature']
-//config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
 
 config.services = ['chromedriver']
 config.capabilities = [{

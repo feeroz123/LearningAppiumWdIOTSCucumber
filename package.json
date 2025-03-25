@@ -13,13 +13,14 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "wdio:android": "wdio run conf/wdio.conf.android.ts",
-    "wdio:windows": "wdio run conf/wdio.conf.windows.ts",
-    "wdio:windows-vp": "wdio run conf/wdio.conf.windows-viewport.ts",
-    "wdio:desktop-bstack": "wdio run conf/wdio.conf.desktop-bstack.ts",
-    "wdio:android-bstack": "wdio run conf/wdio.conf.android-bstack.ts",
-    "wdio:ios-bstack": "wdio run conf/wdio.conf.ios-bstack.ts",
-    "wdio:mobile-bstack": "wdio run conf/wdio.conf.mobile-bstack.ts"
+    "wdio:desktop-bstack": "wdio run conf/browserstack/desktop/wdio.conf.desktop-bstack.ts",
+    "wdio:mobile-bstack": "wdio run conf/browserstack/mobile/wdio.conf.mobile-bstack.ts",
+    "wdio:android-bstack": "wdio run conf/browserstack/mobile/wdio.conf.android-bstack.ts",
+    "wdio:ios-bstack": "wdio run conf/browserstack/mobile/wdio.conf.ios-bstack.ts",
+
+    "wdio:windows-local": "wdio run conf/local/desktop/wdio.conf.windows-local.ts",
+    "wdio:windows-local-viewport": "wdio run conf/local/desktop/wdio.conf.windows-viewport.ts",
+    "wdio:android-local": "wdio run conf/local/mobile/wdio.conf.android-local.ts"
   },
   "dependencies": {
     "@wdio/cli": "^9.11.0"

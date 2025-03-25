@@ -1,30 +1,19 @@
-import { config } from './wdio.conf';
+import { config } from '../../wdio.conf';
 
-console.log('Running on Browserstack - App Automate')
-
-//config.specs = ['../features/**/*.feature']
-//config.cucumberOpts.require = ['./features/step-definitions/**/*.ts']
-
-config.capabilities = [{
-    platformName: 'Android',
-    'appium:automationName': 'UiAutomator2',
-    'autoAcceptAlerts': true,
-}]
-
-config.services = [
-    ['appium',
-        {
-            logPath: './appium_logs',
-            args: { port: 4723 }
-        }
-    ]
-];
+console.log('Running on Browserstack - Web - Automate')
 
 const parallelConfig = {
     user: process.env.BROWSERSTACK_USERNAME,
     key: process.env.BROWSERSTACK_ACCESS_KEY,
     hostname: 'hub.browserstack.com',
     maxInstances: 1,
+    commonCapabilities: {
+        'bstack:options': {
+            buildName: 'wdio-android-mobile-build',
+            networkLogs: 'true',
+            consoleLogs: 'info'
+        }
+    },
     services: [
         [
             'browserstack',
@@ -33,10 +22,8 @@ const parallelConfig = {
                 testObservability: true,
                 testObservabilityOptions: {
                     projectName: "ES",
-                    browserstackLocal: true
-                },
+                }
             }
-
         ]
     ],
     capabilities: [
@@ -48,14 +35,7 @@ const parallelConfig = {
                 deviceOrientation: 'portrait'
             }
         }
-    ],
-    commonCapabilities: {
-        'bstack:options': {
-            buildName: `wdio-android-mobile-build`,
-            networkLogs: 'true',
-            consoleLogs: 'info'
-        }
-    },
+    ]
 };
 
 exports.config = { ...config, ...parallelConfig };
