@@ -43,4 +43,5 @@ Run `npm install`
 # Reporting
 Execute this command to generate and serve the Allure report:
 ```sh
-allure generate allure-results && allure open
+allure generate allure-results --clean && allure open
+```
