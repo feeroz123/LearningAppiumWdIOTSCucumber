@@ -19,6 +19,10 @@ Run `npm install`
     npm run wdio:windows-local-viewport
     ```
 3. To execute in BROWSERSTACK:
+    - For ALL devices:
+        ```sh
+        npm run wdio:all-bstack
+        ```
     - For Desktop devices:
         ```sh
         npm run wdio:desktop-bstack

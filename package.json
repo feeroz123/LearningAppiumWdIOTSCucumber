@@ -13,6 +13,8 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "wdio:all-bstack" : "wdio run conf/browserstack/wdio.conf.all-bstack.ts",
+
     "wdio:desktop-bstack": "wdio run conf/browserstack/desktop/wdio.conf.desktop-bstack.ts",
     "wdio:mobile-bstack": "wdio run conf/browserstack/mobile/wdio.conf.mobile-bstack.ts",
     "wdio:android-bstack": "wdio run conf/browserstack/mobile/wdio.conf.android-bstack.ts",
