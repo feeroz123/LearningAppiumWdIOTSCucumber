@@ -5,24 +5,33 @@ Run `npm install`
 1. To run in a local Android AVD, make sure the AVD is up with the details as mentioned in the `wdio.conf.android.ts` file.
 
 # Execution
-1. To execute in LOCAL ANDROID AVD:
+1. To execute in LOCAL machine:
+    - For Android AVD
     ```sh
-    npm run wdio:android
+    npm run wdio:android-local
     ```
-2. To execute in LOCAL WINDOWS:
+    - For Windows
     ```sh
-    npm run wdio:windows
+    npm run wdio:windows-local
+    ```
+    - For Windows in Viewport mode:
+    ```sh
+    npm run wdio:windows-local-viewport
     ```
 3. To execute in BROWSERSTACK:
     - For Desktop devices:
         ```sh
         npm run wdio:desktop-bstack
         ```
-    - For Android Mobile device:
+    - For all Mobile devices:
+        ```sh
+        npm run wdio:mobile-bstack
+        ```
+    - For Android Mobile device only:
         ```sh
         npm run wdio:android-bstack
         ```
-    - For IOS Mobile device:
+    - For iOS Mobile device only:
         ```sh
         npm run wdio:ios-bstack
         ```
