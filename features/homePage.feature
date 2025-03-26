@@ -14,4 +14,4 @@ Feature: Home page UI
   Scenario: Verify that the user is able to navigate to the Login page
     When I click on the 'User Icon' button
     And I click on the 'Sign In' button
-    Then I should be navigated to the login page
+    Then I should be navigated to the Login page
