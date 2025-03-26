@@ -2,11 +2,6 @@ import { config } from '../wdio.conf';
 
 console.log('Running on Browstack - Web - Automate')
 
-// Hook to maximise the browser
-config.before = async function (capabilities, specs, browser) {
-    await browser.maximizeWindow()
-}
-
 config.specs = ['../../features/**/*.feature']
 
 const parallelConfig = {
